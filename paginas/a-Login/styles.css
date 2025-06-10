@@ -1,0 +1,89 @@
+/* Página de Stephanie */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "Montserrat", sans-serif;
+    color: #404040;
+    display: flex; 
+    height: 100vh;
+    justify-content: center; /*controla o alinhamento horizontal dos elementos dentro do contêiner*/
+    align-items: center; /*define o alinhamento vertical dos elementos dentro do elemento pai*/
+    background-color: rgb(75, 75, 144);
+    padding: 20px;
+}
+
+h3{
+    font-size: 24px;
+}
+
+form{
+    padding: 50px;
+    background-color: white;
+    border-radius: 30px; /*arredondando os cantos*/
+    display:flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.barra-horizontal{ /*selecionar um elemento aki no css pela classe*/
+    background-color: rgb(75, 75, 144);
+    height: 3px;
+    width: 210px;
+}
+
+.campo-input{
+    display: flex;
+    flex-direction: column;
+    gap:5px;
+}
+
+.lembrar-me{
+    display: flex;
+    gap: 5px;
+}
+
+.titulo{
+    display: flex;
+    flex-direction: column;
+    gap:5px;           
+}
+
+button{
+    padding: 10px;
+    align-self: center;
+    width: 160px;
+    border-radius: 30px;
+    border: solid 1px rgb(75, 75, 144);
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+button:hover {
+    background-color: rgb(75, 75, 144);
+    color: white;
+    transition: 0.3s;
+}
+  
+input{
+    padding: 10px;
+    border-radius: 10px;
+    border: none;background-color: #f1f1f1;
+}
+
+a {
+    color: rgb(75, 75, 144);
+    font-weight: 500;
+}
+
+.esqueceu-senha{
+    text-align: center;
+}
+
+.cadastro{
+    text-align: center;
+}
