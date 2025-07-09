@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="cad-volunter.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <title>Cadastro</title>
 </head>
@@ -21,24 +21,19 @@
             </button>
         </div>
 
-        <form action="" id="form">
+        <form action="home.html" id="formVoluntario">
             <div id="input_container">
-                <div class="input-box">
-                    <label for="name" class="form-label">
-                        Primeiro nome
-                    </label>
-                    <div class="input-field">
-                        <input type="text" name="name" id="name" class="form-control" placeholder="Fulano">
-                        <i class="fa-regular fa-user"></i>
-                    </div>
+                <div class="titulo">
+                    Ficha de voluntariado
+                    <div class="barra-horizontal"></div>
                 </div>
 
                 <div class="input-box">
-                    <label for="last_name" class="form-label">
-                        Último nome
+                    <label for="name" class="form-label">
+                        Nome completo
                     </label>
                     <div class="input-field">
-                        <input type="text" name="last_name" id="last_name" class="form-control" placeholder="De tal">
+                        <input type="text" name="name" id="name" class="form-control" placeholder="Fulano">
                         <i class="fa-regular fa-user"></i>
                     </div>
                 </div>
@@ -49,6 +44,28 @@
                     </label>
                     <div class="input-field">
                         <input type="date" name="birthdate" id="birthdate" class="form-control">
+                    </div>
+                </div>
+
+                <div class="input-box">
+                    <label for="cpf" class="form-label">
+                        CPF
+                    </label>
+                    <div class="input-field">
+                        <input type="tel" name="cpf" id="cpf" class="form-control" placeholder="123.456.789-00">
+                        <i class="fa-regular fa-user"></i>
+                    </div>
+                </div>
+
+                <div class="input-box">
+                    <label for="telefone" class="form-label">
+                        Telefone
+                    </label>
+                    <div class="input-field">
+                        <input type="tel" name="telefone" id="telefone" class="form-control"
+                            placeholder="(--) 99628-8313">
+
+                        <i class="" id="-icon"></i>
                     </div>
                 </div>
 
@@ -65,26 +82,26 @@
                 </div>
 
                 <div class="input-box">
-                    <label for="password" class="form-label">
-                        Senha
+                    <label for="telefone" class="form-label">
+                        Telefone
                     </label>
                     <div class="input-field">
-                        <input type="password" name="password" id="password" class="form-control"
-                            placeholder="********">
+                        <input type="tel" name="telefone" id="telefone" class="form-control"
+                            placeholder="(--) 99628-8313">
 
-                        <i class="fa-regular fa-eye-slash" id="password-icon"></i>
+                        <i class="" id="-icon"></i>
                     </div>
                 </div>
 
                 <div class="input-box">
-                    <label for="confirm_password" class="form-label">
-                        Confirmar senha
+                    <label for="" class="form-label">
+                        Outrem
                     </label>
                     <div class="input-field">
-                        <input type="password" name="confirm_password" id="confirm_password" class="form-control"
-                            placeholder="********">
+                        <input type="p" name="" id="" class="form-control"
+                            placeholder="">
 
-                        <i class="fa-regular fa-eye-slash" id="password-icon"></i>
+                        <i class="" id="password-icon"></i>
                     </div>
                 </div>
 
@@ -112,10 +129,12 @@
 
                 <button type="submit" class="btn-default">
                     <i class="fa-solid fa-check"></i>
-                    Criar conta
+                    Seguinte
                 </button>
         </form>
     </main>
+
+    <script src="script.js"></script>
 </body>
 
 </html>

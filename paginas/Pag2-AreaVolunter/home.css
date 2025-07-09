@@ -1,0 +1,95 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Corpo */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f6f8ff;
+  color: #1e293b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* Container principal */
+.container-home {
+  background: white;
+  padding: 40px 30px;
+  border-radius: 8px;
+  width: 400px;
+  max-width: 95%;
+  box-shadow: 0 4px 12px rgba(204,204,204,0.5);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Título principal */
+.container-home h2 {
+  font-size: 28px;
+  font-weight: 600;
+  color: #6366f1;
+}
+
+/* Nome do voluntário destacado */
+#nomeVoluntario {
+  color: #4f46e5;
+}
+
+/* Subtítulo */
+.container-home p {
+  font-size: 16px;
+  color: #334155;
+}
+
+/* Container dos botões */
+.botoes {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Botões e links */
+.botoes .botao {
+  background-color: #6366f1;
+  color: white;
+  text-decoration: none;
+  padding: 14px 0;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  display: block;
+  transition: background-color 0.3s ease;
+  user-select: none;
+}
+
+.botoes .botao:hover {
+  background-color: #4f46e5;
+}
+
+/* Botão Sair é button */
+#btnSair {
+  border: none;
+  background-color: #6366f1;
+}
+
+#btnSair:hover {
+  background-color: #4f46e5;
+}
+
+/* Responsividade */
+@media (max-width: 450px) {
+  .container-home {
+    width: 100%;
+    padding: 30px 20px;
+  }
+}
