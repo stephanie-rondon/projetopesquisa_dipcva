@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Acampamento</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Cadastrar Acampamento</h1>
+        <nav class="navbars">
+            <a href="" class="navlinks">Dashboard</a>
+            <a href="index.html" class="navlinks">Cadastrar Acampamento</a>
+        </nav>
+    </header>
+    <form class="formulario">
+        <label for="nome">Nome do Acampamento:</label>
+        <input type="text" id="nome" name="nome" required>
+        <label for="tipo">Tipo:</label>
+        <select id="tipo" name="tipo" required>
+            <option value="tipo1">Tipo 1</option>
+            <option value="tipo2">Tipo 2</option>
+            <option value="tipo3">Tipo 3</option>
+        </select>
+        <label for="data">Data:</label>
+        <input type="date" id="data" name="data" required>
+        <label for="status">Status:</label>
+        <select id="status" name="status" required>
+            <option value="ativo">Ativo</option>
+            <option value="pendente">Pendente</option>
+            <option value="cancelado">Cancelado</option>
+        </select>
+        <div class="botao-submit">
+          <button type="submit" class="salvar">Salvar</button>
+        </div>
+    </form>
+</body>
+</html>
