@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Busca de Voluntários </title>
+    <link rel="stylesheet" href="buscavoluntarios.css">
+    <script src="buscavoluntarios.js" defer></script>  
+</head>
+<body>
+    <div class="filtros"><!-- Botões de Filtros -->
+        <button class="btn">Ativos</button>
+        <button>Expirados</button>
+        <button>Pendentes</button>
+        <button>Todos</button>
+    </div>
+    <div class="pesquisa">
+        <label for="searchInput">
+            <span class="materiaç-symbols-outlined"></span>
+        </label>
+        <input type="text" id="searchInput" placeholder="Pesquisar por Voluntários..."> <!-- barra de pesquisa -->
+    </div>
+    <div class="card-container"><!-- aqui que vai ficar o nome dos voluntários e etc -->
+        <div class="card">
+        <h1> nome do voluntário</h1>
+        <h3>CPF</h3>
+        <p>Expirado/ativo/pendente</p> <!-- Seria interessante se quando estiver expirado a 
+                                            cor do texto estar vermelha, quando ativo ela estar verde/azul e quando 
+                                            pendenete estiver preto ou alguma outra cor (no pendente eu fiquei sem ideia de cor). 
+                                            Digo isso porque dessa maneira seria bem mais visivelmente perceptível qual é os status da ficha -->
+        </div>
+    </div>
+</body>
+</html>
