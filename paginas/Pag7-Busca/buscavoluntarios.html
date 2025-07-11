@@ -9,26 +9,18 @@
 </head>
 <body>
     <div class="filtros"><!-- Botões de Filtros -->
-        <button class="btn">Ativos</button>
-        <button>Expirados</button>
-        <button>Pendentes</button>
-        <button>Todos</button>
+        <button class="btn" onclick="filterElements('Ativo')">Ativos</button>
+        <button onclick="filterElements('Expirado')">Expirados</button>
+        <button onclick="filterElements('Pendente')">Pendentes</button>
+        <button onclick="filterElements('Todos')">Todos</button>
     </div>
     <div class="pesquisa">
         <label for="searchInput">
             <span class="materiaç-symbols-outlined"></span>
         </label>
-        <input type="text" id="searchInput" placeholder="Pesquisar por Voluntários..."> <!-- barra de pesquisa -->
+        <input type="text" id="searchInput" placeholder="Pesquisar por Voluntários...">
     </div>
-    <div class="card-container"><!-- aqui que vai ficar o nome dos voluntários e etc -->
-        <div class="card">
-        <h1> nome do voluntário</h1>
-        <h3>CPF</h3>
-        <p>Expirado/ativo/pendente</p> <!-- Seria interessante se quando estiver expirado a 
-                                            cor do texto estar vermelha, quando ativo ela estar verde/azul e quando 
-                                            pendenete estiver preto ou alguma outra cor (no pendente eu fiquei sem ideia de cor). 
-                                            Digo isso porque dessa maneira seria bem mais visivelmente perceptível qual é os status da ficha -->
-        </div>
+    <div class="card-container">
     </div>
 </body>
 </html>
