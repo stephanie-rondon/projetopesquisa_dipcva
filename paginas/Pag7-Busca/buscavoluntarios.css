@@ -1,1 +1,42 @@
 
+.btn {
+margin-left: 735px;
+
+}
+.pesquisa {
+    display: flex;
+    height: 400px;
+    width: 1680px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#searchInput {
+    height: 35px;
+    width: 450px;
+    background: linear-gradient(to bottom,#c6f1c0f6, #bedef0ea);
+}
+.search label {
+    height: 20px;
+}
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.card {
+    width: 300px;
+    background: rgb(201, 250, 247);
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px 20px;
+    box-shadow: 0 0 0px rgba(0, 0, 0, 1);
+    cursor: pointer;
+    transition: 0.1s;
+}
+.card:hover {
+    transform: scale(1.02);
+}
+
