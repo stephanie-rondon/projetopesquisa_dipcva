@@ -1,6 +1,13 @@
 body {    
     padding: 0;
     margin: 0;
+    font-family: sans-serif;
+}
+.titulo {
+    background: rgb(255, 255, 166);
+    display: flex;
+    align-items: center;
+    height: 50px;
 }
 .dados {
     display: flex;
@@ -9,6 +16,7 @@ body {
     align-content: center;
     flex-direction: column;
     flex-wrap: nowrap;
+    background: rgb(192, 255, 255);
 }
 .ds {
 display: flex;
@@ -34,7 +42,7 @@ display: flex;
     
 }
 .e {
-    margin-left: 360px;
+    margin-left: 400px;
 }
 .r {
     margin-top: 21px;
@@ -49,7 +57,7 @@ display: flex;
     margin-top: 25px;
 }
 .f {
-    margin-left: 360px;
+    margin-left: 400px;
 }
 .r {
     margin-top: 21px;
@@ -64,13 +72,13 @@ display: flex;
     margin-top: 25px;
 }
 .g {
-    margin-left: 360px;
+    margin-left: 400px;
 }
 .r {
     margin-top: 21px;
 }
 h3 {
-    margin-left: 400px;
+    margin-left: 410px;
 }
 .zs {
     display: flex;
@@ -86,11 +94,46 @@ h3 {
 .ddssaude {
     display: flex;
     width: 1670px;
-    height: 777px;
+    height: 820px;
     align-items: center;
     flex-direction: column;
     flex-wrap: nowrap;
+    background-color: rgb(208, 255, 208);
 }
 .AEE {
     color: red;
+}
+.b1 {
+    width: 1670px;
+    height: 5px;
+    background: black;
+}
+.b2 {
+    width: 1274px;
+    height: 5px;
+    background: black;
+    margin-left: 396px;
+}
+.b3 {
+    width: 1274px;
+    height: 5px;
+    background: black;
+    margin-left: 396px;
+}
+.b4 {
+    width: 1274px;
+    height: 5px;
+    background: black;
+    margin-left: 396px;
+}
+.b5 {
+    width: 1274px;
+    height: 5px;
+    background: black;
+    margin-left: 396px;
+}
+.b6 {
+    width: 1670px;
+    height: 5px;
+    background: black;
 }
