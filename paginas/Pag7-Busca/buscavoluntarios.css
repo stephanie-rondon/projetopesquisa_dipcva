@@ -1,6 +1,6 @@
 
 .btn {
-margin-left: 735px;
+margin-left: 650px;
 
 }
 .pesquisa {
@@ -26,12 +26,12 @@ margin-left: 735px;
     justify-content: center;
 }
 .card {
-    width: 300px;
+    width: 350px;
     background: rgb(201, 250, 247);
     border: 1px solid #e0e0e0;
     border-radius: 10px;
     margin: 10px;
-    padding: 10px 20px;
+    padding: 15px 20px;
     box-shadow: 0 0 0px rgba(0, 0, 0, 1);
     cursor: pointer;
     transition: 0.1s;
