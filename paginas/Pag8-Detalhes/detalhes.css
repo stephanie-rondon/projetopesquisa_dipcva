@@ -9,6 +9,16 @@ body {
     align-items: center;
     height: 50px;
 }
+.return {
+  background: transparent;
+    border: transparent;
+    cursor: pointer;
+    height: 20px;
+    transition: 0.1s;
+}
+.return :hover {
+    transform: scale(1.15);
+}
 .dados {
     display: flex;
     width: 1670px;
@@ -134,6 +144,9 @@ h3 {
 }
 .b6 {
     width: 1670px;
+    height: 5px;
+    background: black;
+}
     height: 5px;
     background: black;
 }
