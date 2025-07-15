@@ -1,8 +1,7 @@
-
 .btn {
-margin-left: 650px;
-
+margin-left: 693px;
 }
+
 .pesquisa {
     display: flex;
     height: 400px;
@@ -39,4 +38,3 @@ margin-left: 650px;
 .card:hover {
     transform: scale(1.02);
 }
-
