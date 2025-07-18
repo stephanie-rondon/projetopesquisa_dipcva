@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,80 +8,173 @@
     <script src="detalhes.js" defer></script>
 </head>
 <body>
-    <div class="titulo">
-<button type="submit" class="return" onclick="retornar()">
-   <img class="return" title="Voltar a Página Anterior" src="https://cdn-icons-png.flaticon.com/512/44/44691.png">
-</button>
-     <h1 class="txt">Dados</h1> <!-- DETALHE: esses <p></p> seriam a resposta sobre a pessoa que vem lá do banco de dados. -->
-    </div>
-     <section class="dados">
-        <div class="b1"></div>
-    <div class="ds">
-    <img src="https://i.etsystatic.com/23562174/r/il/c19167/4027866317/il_570xN.4027866317_fkl2.jpg" class="FtVlnt" width="396px" height="496px"><!-- foto do voluntário -->
-    <h4 class="d">Nome:</h4>
-    <p class="r"></p>
-    <h4 class="d">Profissão:</h4>
-    <p class="r"></p>
-    <h4 class="d">Nacionalidade:</h4>
-    <p class="r"></p>
-    </div>
-    <div class="b2"></div>
-    <div class="es">
-    <h4 class="e">Estado Civil:</h4>
-    <p class="r"></p>
-    <h4 class="e">RG:</h4>
-    <p class="r"></p>
-    <h4 class="e">órgão/UP:</h4>
-    <p class="r"></p>
-    </div>
-    <div class="b3"></div>
-    <div class="fs">
-    <h4 class="f">CPF:</h4>
-    <p class="r"></p>
-    <h4 class="f">Residência/Domiciliada na:</h4>
-    <p class="r"></p>
-    <h4 class="f">Telefone:</h4>
-    <p class="r"></p>
-    </div>
-    <div class="b4"></div>
-    <div class="gs">
-    <h4 class="g">Bairro:</h4>
-    <p class="r"></p>
-   <h4 class="g">Cidade:</h4>
-   <p class="r"></p> 
-   <h4 class="g">Estado:</h4>
-   <p class="r"></p>
-    </div>
-    <div class="b5"></div>
-    <div class="zs">
-   <h4 class="z">CEP:</h4>
-   <p class="r"></p>
-   <h3>O Voluntário Concordou com as Cláusulas?</h3>
-    <p class="r"></p>
-</div>
-</section>
-<div class="b6"></div>
-<section class="ddssaude">
-<h1>Saúde</h1>
-<h4> É portador de alguma doença, sendo ela, neurológicas, cardíaca, hipertensão, diabetes, algum tipo
-de transtornos, doenças autoimunes, síndromes ou deficiência?</h4>
-<p></p>
-<h4> já ocorreram situações que tenham influência direta na saúde dele ou integridade
-física? Como por exemplo, cirurgias (restrição) uso de próteses (dentária) crise convulsiva, epilepsia,
-desmaios etc.</h4>
-<p></p>
-<h4>Tem Convênio? Qual?</h4>
-<p></p>
-<h4>Em caso de dor, qual medicamento ele utiliza?</h4>
-<p></p>
-<h4>Alérgico a alguma medicação? Se sim, qual?</h4>
-<p></p>
-<h4>Alérgico a algum alimento? Se sim, qual?</h4>
-<p></p>
-<h4>OBSERVAÇÕES: Qualquer informação que julgue ser útil relacionado a saúde.</h4>
-<p></p>
-<h2 class="AEE">Esse Arquivo Expirará em:</h2>
-<p>5,972 x 10^24 dias</p>
-</section>
+    <div id="inicio">
+        <button class="butao" type="submit" onclick="retornar()">
+            <img title="Voltar a pagina de busca" class="butao" src="https://static.vecteezy.com/ti/vetor-gratis/p1/21797173-seta-esquerda-icone-isolado-em-branco-fundo-vetor.jpg">
+        </button>
+        <h2 id="dis">Data de Validade da ficha:</h2>
+        <h2 id="claimer">25/08/2099 (data usada só como exemplo)</h2>
+    </div>  
+    <section id="tudo">
+        <img id="placeholder" src="https://popbooksonline.com/wp-content/uploads/2018/03/image-placeholder-500x500.jpg">
+    <section id="info">
+        <h2>Detalhes do Voluntário</h2>
+        <div class="tt">
+            <p>Nome:</p>
+            <div class="resposta">
+                <p></p>
+            </div>
+        </div>
+        <div class="tt">
+            <p>Profissão</p>
+            <div class="resposta">
+                <p></p>
+            </div>
+        </div>
+         <div class="tt">
+            <p>Nacionalidade:</p>
+            <div class="resposta">
+                <p></p>
+            </div>
+        </div>
+         <div class="tt">
+            <p>Estado Civil:</p>
+            <div class="resposta">
+                <p></p>
+            </div>
+        </div>
+         <div class="tt">
+            <p>RG:</p>
+            <div class="resposta">
+                <p></p>
+            </div>
+        </div>
+         <div class="tt">
+            <p>Orgão/UP:</p>
+            <div class="resposta">
+                <p></p>
+            </div>
+        </div>
+         <div class="tt">
+            <p>CPF:</p>
+            <div class="resposta">
+                <p></p>
+            </div>
+        </div>
+         <div class="tt">
+            <p>Residente/Domiciliada na:</p>
+            <div class="resposta">
+                <p></p>
+            </div>
+        </div>
+         <div class="tt">
+            <p>Número:</p>
+            <div class="resposta">
+                <p></p>
+            </div>
+        </div>
+         <div class="tt">
+            <p>Bairro:</p>
+            <div class="resposta">
+                <p></p>
+            </div>
+        </div>
+         <div class="tt">
+            <p>Cidade:</p>
+            <div class="resposta">
+                <p></p>
+            </div>
+        </div>
+         <div class="tt">
+            <p>Estado:</p>
+            <div class="resposta">
+                <p></p>
+            </div>
+        </div>
+         <div class="tt">
+            <p>CEP:</p>
+            <div class="resposta">
+                <p></p>
+            </div>
+        </div>
+         <div class="tt">
+            <p>O Voluntário Concordou com as Clausulas?</p>
+            <div class="resposta">
+                <p></p>
+            </div>
+        </div>
+    </section>
+    <section id="ds">
+        <h2>Informações Relacionadas a Saúde do Voluntário</h2>
+            <div class="tt">
+            <p>É portador de alguma doença, sendo ela, neurológicas, cardíaca, hipertensão, diabetes, algum tipo
+de transtornos, doenças autoimunes, síndromes ou deficiência – Relatar abaixo qualquer uma (Caso não, Estará em branco):</p>
+            <div class="resposta">
+                <p></p>
+                <br>
+            </div>
+            <div class="tt">
+                <p>Situações que já ocorreram e que tenham influência direta na sua saúde ou integridade
+física, como por exemplo, cirurgias (restrição) uso de próteses (dentária) crise convulsiva, epilepsia,
+desmaios etc. Caso não, Estará em branco.</p>
+            <div class="resposta">
+                <p></p>
+                <br>
+            </div>
+        </div>
+         <div class="tt">
+            <p>Tem Convênio? Qual?</p>
+            <div class="resposta">
+                <p>asdasd</p>
+                <br>
+            </div>
+        </div>
+        <div class="tt">
+            <p>Toma alguma medicação de uso contínuo e/ou controlado. Qual ou quais?</p>
+        <div class="resposta">
+                <p>asdasd</p>
+                <br>
+            </div>
+        </div>
+        <div class="tt">
+            <p>Em caso de dor, qual medicamento utiliza?</p>
+        <div class="resposta">
+                <p></p>
+                <br>
+            </div>
+        </div>
+        <div class="tt">
+            <p>Quanto a ALERGIAS, responda sim ou não, sendo “sim” descreva:</p>
+        <div class="resposta">
+                <p></p>
+            </div>
+        </div>  
+        <div class="tt">
+            <p>É alérgico a alguma medicação? Qual?</p>
+        <div class="resposta">
+                <p></p>
+            </div>
+        </div>      
+        <div class="tt">
+            <p>É alérgico a algum alimento? Qual?</p>
+        <div class="resposta">
+                <p></p>
+            </div>
+        </div>   
+        <div class="tt">
+            <p>É alérgico a picada de abelha? Qual?</p>
+        <div class="resposta">
+                <p></p>
+                <br>
+            </div>
+        </div>                       
+        <div class="tt">
+            <p>OBSERVAÇÕES: Qualquer informação que julgue ser útil relacionado a sua saúde.</p>
+        <div class="resposta">
+                <p></p>
+            </div>
+        </div>                   
+    </section>  
+    </section>
 </body>
-</html>
+</html>>
