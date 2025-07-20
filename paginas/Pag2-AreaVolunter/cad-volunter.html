@@ -13,27 +13,22 @@
     <main id="form_container">
         <div id="form_header">
             <h1 id="form_title">
-                Criar conta
+                Ficha de voluntariado
             </h1>
 
-            <button class="btn-deault">
+            <button onclick="window.location.href='home.html'" class="btn-default-i">
                 <i class="fa-solid fa-right-to-bracket"></i>
             </button>
         </div>
 
         <form action="home.html" id="formVoluntario">
             <div id="input_container">
-                <div class="titulo">
-                    Ficha de voluntariado
-                    <div class="barra-horizontal"></div>
-                </div>
-
                 <div class="input-box">
                     <label for="name" class="form-label">
                         Nome completo
-                    </label>
+                    </label>  
                     <div class="input-field">
-                        <input type="text" name="name" id="name" class="form-control" placeholder="Fulano">
+                        <input type="text" name="name" id="name" class="form-control" placeholder="">
                         <i class="fa-regular fa-user"></i>
                     </div>
                 </div>
@@ -58,12 +53,12 @@
                 </div>
 
                 <div class="input-box">
-                    <label for="telefone" class="form-label">
-                        Telefone
+                    <label for="rg" class="form-label">
+                        RG
                     </label>
                     <div class="input-field">
                         <input type="tel" name="telefone" id="telefone" class="form-control"
-                            placeholder="(--) 99628-8313">
+                            placeholder="">
 
                         <i class="" id="-icon"></i>
                     </div>
@@ -89,19 +84,7 @@
                         <input type="tel" name="telefone" id="telefone" class="form-control"
                             placeholder="(--) 99628-8313">
 
-                        <i class="" id="-icon"></i>
-                    </div>
-                </div>
-
-                <div class="input-box">
-                    <label for="" class="form-label">
-                        Outrem
-                    </label>
-                    <div class="input-field">
-                        <input type="p" name="" id="" class="form-control"
-                            placeholder="">
-
-                        <i class="" id="password-icon"></i>
+                        <i class="" id="fa-solid fa-phone"></i>
                     </div>
                 </div>
 
@@ -128,8 +111,7 @@
                 </div>
 
                 <button type="submit" class="btn-default">
-                    <i class="fa-solid fa-check"></i>
-                    Seguinte
+                    Enviar
                 </button>
         </form>
     </main>
