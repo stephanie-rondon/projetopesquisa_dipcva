@@ -93,3 +93,24 @@ a {
 .campo-input input:focus{
   outline: 2px solid rgb(75, 75, 144);
 }
+
+.input-com-icone {
+    position: relative;
+    width: 100%;
+}
+
+.input-com-icone input {
+    width: 100%;
+    padding-right: 35px;
+    box-sizing: border-box;
+}
+
+.input-com-icone i {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: rgb(75, 75, 144);
+    font-size: 1rem;
+}

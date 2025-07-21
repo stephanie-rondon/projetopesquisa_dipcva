@@ -23,18 +23,25 @@
                 <input type="email" id="e-mail" name="email" />
             </div>
 
-            <div class="campo-input">
+            <div class="campo-input senha-container">
                 <label for="senha">Sua senha*</label>
-                <input type="password" id="senha" name="senha" />
+                <div class="input-com-icone">
+                    <input type="password" id="senha" name="senha" />
+                    <i id="toggleSenha" class="fa-solid fa-eye"></i>
+                </div>
             </div>
 
-            <div class="campo-input">
+            <div class="campo-input senha-container">
                 <label for="confirmar-senha">Confirme sua senha*</label>
-                <input type="password" id="confirmar-senha" name="confirmar" />
+                <div class="input-com-icone">
+                    <input type="password" id="confirmar-senha" name="confirmar" />
+                    <i id="toggleConfirmarSenha" class="fa-solid fa-eye"></i>
+                </div>
             </div>
+
             <button type="submit" id="btnCadastrar">Cadastrar</button>
         </form>
-        
+
         <script src="cadastro.js"></script>
     </main>
 </body>
