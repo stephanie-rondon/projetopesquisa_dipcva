@@ -1,0 +1,42 @@
+CREATE TABLE voluntarios (
+    id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100),
+    data_nascimento DATE,
+    cpf VARCHAR(14),
+    rg VARCHAR(20),
+    email VARCHAR(100),
+    telefone VARCHAR(20),
+    genero VARCHAR(20) NOT NULL,
+    data_cadastro DATETIME DEFAULT CURRENT_TIMESTAMP,
+    status VARCHAR(20) DEFAULT 'pendente',
+    altura DECIMAL(5,2),
+    peso DECIMAL(5,2),
+    alergias VARCHAR(255),
+    medicamentos VARCHAR(255),
+    restricoes VARCHAR(255),
+    doencas VARCHAR(255),
+    observacoes VARCHAR(255),
+    documento VARCHAR(255),
+    id_usuario INT(11) NOT NULL
+);
+
+
+
+CREATE TABLE acampamentos (
+    id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100),
+    data DATE,
+    tipo VARCHAR(50),
+    data_criacao DATETIME DEFAULT CURRENT_TIMESTAMP,
+    responsavel_id INT(11),
+    status VARCHAR(20) DEFAULT 'pendente'
+);
+
+
+CREATE TABLE usuarios (
+    id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(100) NOT NULL,
+    senha VARCHAR(255) NOT NULL,
+    data_cadastro DATETIME DEFAULT CURRENT_TIMESTAMP,
+    is_admin TINYINT(1) UNSIGNED NOT NULL DEFAULT 0
+);
