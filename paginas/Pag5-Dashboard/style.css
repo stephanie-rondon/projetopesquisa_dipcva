@@ -44,11 +44,10 @@ header {
     color: #ffffff; 
     margin: 0 10px;
     text-decoration: none;
-    font-weight: bold;
 }
 
 .navlinks:hover {
-    color: black;
+    color: rgb(192, 187, 187);
 }
 
 .cards {
@@ -225,7 +224,7 @@ select {
 }
 
 .btn-promote {
-    background-color: #3a3a6f;
+    background-color: #4b4b90;
     color: white;
     border: none;
     padding: 8px 15px;
@@ -236,7 +235,7 @@ select {
 }
 
 .btn-promote:hover {
-    background-color: #5e5e79;
+    background-color: #3a3a6f;
 }
 
 /* Responsividade */

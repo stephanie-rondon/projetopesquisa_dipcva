@@ -53,9 +53,9 @@ $pendentes = $result_pendentes->fetch_assoc()['pendentes'] ?? 0;
 <body>
     <button onclick="window.location.href='../../login.php'; console.log('Botão Voltar clicado')" id="btnVoltar" class="botao">Voltar</button>
     <header>
-        <h1>Dashboard do Gestor</h1>
+        <h1>Área do Gestor</h1>
         <nav>
-            <a href="index.php" class="navlinks">Dashboard</a>
+           <!-- <a href="index.php" class="navlinks">Dashboard</a> -->
             <a href="../Pag6-Cad.acp/index.php" class="navlinks">Cadastrar Acampamento</a>
         </nav>
     </header>

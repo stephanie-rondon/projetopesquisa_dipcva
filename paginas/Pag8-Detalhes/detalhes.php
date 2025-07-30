@@ -88,7 +88,7 @@ if ($rg_imagem && file_exists('../Pag2-AreaVolunter/uploads' . $rg_imagem)) {
         </div>
     </div>  
     <section id="tudo">
-        <!--<img id="placeholder" src="<?php echo htmlspecialchars($rg_imagem_src); ?>" alt="Imagem do RG">-->
+        <!--<img id="placeholder" src="<?php //echo htmlspecialchars($rg_imagem_src); ?>" alt="Imagem do RG">-->
         <section id="info">
             <h2>Detalhes do Voluntário</h2>
             <div class="tt">
