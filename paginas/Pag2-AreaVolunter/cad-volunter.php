@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true || (isset($_SESSION['is_admin']) && $_SESSION['is_admin'] === true)) {
     header("Location: ../../login.php");
     exit();
@@ -25,6 +24,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $restricoes = trim($_POST['restricoes'] ?? '');
     $doencas = trim($_POST['doencas'] ?? '');
     $observacoes = trim($_POST['observacoes'] ?? '');
+
+    // Verifica se o usuário concordou com os termos
+    $concordou_termos = isset($_POST['concordou_termos']) && $_POST['concordou_termos'] === '1';
 
     $documento = null;
     if (isset($_FILES['documento']) && $_FILES['documento']['error'] == UPLOAD_ERR_OK) {
@@ -61,9 +63,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $erro = "Erro: Usuário não identificado. Faça login novamente.";
     }
 
-
-    if (empty($nome) || empty($data_nascimento) || empty($cpf) || empty($rg) || empty($email) || empty($telefone) || empty($genero) || empty($altura) || empty($peso) || $documento === null) {
-        $erro = "Por favor, preencha todos os campos obrigatórios: Nome, Data de Nascimento, CPF, RG, E-mail, Telefone, Gênero, Altura, Peso e anexe um RG ou CNH.";
+    if (empty($nome) || empty($data_nascimento) || empty($cpf) || empty($rg) || empty($email) || empty($telefone) || empty($genero) || empty($altura) || empty($peso) || $documento === null || !$concordou_termos) {
+        $erro = "Por favor, preencha todos os campos obrigatórios: Nome, Data de Nascimento, CPF, RG, E-mail, Telefone, Gênero, Altura, Peso, anexe um RG ou CNH e concorde com os termos.";
     } elseif (empty($erro) && $id_usuario) {
         $sql_insere = "INSERT INTO voluntarios (id_usuario, nome, data_nascimento, cpf, rg, email, telefone, genero, altura, peso, alergias, medicamentos, restricoes, doencas, observacoes, documento, data_cadastro, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP, 'pendente')";
         $stmt_insere = $conexao->prepare($sql_insere);
@@ -232,6 +233,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <input type="text" name="observacoes" id="observacoes" class="form-control" value="<?php echo isset($_POST['observacoes']) ? htmlspecialchars($_POST['observacoes']) : ''; ?>" placeholder="Se houver">
                         <i class="fa-regular fa-clipboard"></i>
                     </div>
+                </div>
+                <!-- Adição da caixa de seleção e link para o PDF -->
+                <div class="input-box terms-container">
+                    <label class="form-label">
+                        <input type="checkbox" name="concordou_termos" id="concordou_termos" value="1" <?php echo isset($_POST['concordou_termos']) ? 'checked' : ''; ?> required>
+                        Concordo com os termos e condições *
+                    </label>
+                    <a href="../../TERMO.pdf" target="_blank" class="terms-link">Ver termos (PDF)</a>
                 </div>
                 <button type="submit" class="btn-default">Enviar</button>
             </div>

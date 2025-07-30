@@ -8,25 +8,39 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true || !isset($_
 
 include '../../backend/conexao.php';
 
-$nome = urldecode($_GET['nome'] ?? '');
-if (empty($nome)) {
+// Processa a mudança de status
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['status']) && isset($_POST['id_usuario'])) {
+    $id_usuario = $_POST['id_usuario'];
+    $novo_status = $_POST['status'];
+    $sql_update = "UPDATE voluntarios SET status = ? WHERE id_usuario = ?";
+    $stmt = $conexao->prepare($sql_update);
+    $stmt->bind_param("si", $novo_status, $id_usuario);
+    $stmt->execute();
+    $stmt->close();
+    // Redireciona para recarregar a página com o novo status
+    header("Location: detalhes.php?id=" . $id_usuario);
+    exit();
+}
+
+// Obtém o ID do voluntário via GET
+$id_usuario = $_GET['id'] ?? '';
+if (empty($id_usuario)) {
     die("Nenhum voluntário selecionado.");
 }
 
-error_log("Nome recebido: " . $nome);
+error_log("ID recebido: " . $id_usuario);
 
-$sql = "SELECT * FROM voluntarios WHERE LOWER(nome) = LOWER(?) LIMIT 1";
+$sql = "SELECT * FROM voluntarios WHERE id_usuario = ? LIMIT 1";
 $stmt = $conexao->prepare($sql);
-$stmt->bind_param("s", $nome);
+$stmt->bind_param("i", $id_usuario);
 $stmt->execute();
 $result = $stmt->get_result();
 $voluntario = $result->fetch_assoc();
 $stmt->close();
 
 if (!$voluntario) {
-    die("Voluntário não encontrado. Nome buscado: " . htmlspecialchars($nome));
+    die("Voluntário não encontrado. ID buscado: " . htmlspecialchars($id_usuario));
 }
-
 
 $data_validade = date('d/m/Y', strtotime($voluntario['data_cadastro'] . ' +2 years'));
 
@@ -49,170 +63,120 @@ if ($rg_imagem && file_exists('../Pag2-AreaVolunter/uploads' . $rg_imagem)) {
 </head>
 <body>
     <div id="inicio">
-        <button class="butao" type="submit" onclick="retornar()">
-            <img title="Voltar a página de busca" class="butao" src="https://static.vecteezy.com/ti/vetor-gratis/p1/21797173-seta-esquerda-icone-isolado-em-branco-fundo-vetor.jpg">
-        </button>
+        
+    <button onclick="window.location.href='../Pag7-Busca/buscavoluntarios.php'" id="btnVoltar" class="botao">Voltar</button> 
+
+        
         <h2 id="dis">Data de Validade da ficha:</h2>
         <h2 id="claimer"><?php echo htmlspecialchars($data_validade); ?></h2>
+        <div class="status-buttons">
+            <form method="POST" style="display:inline;">
+                <input type="hidden" name="id_usuario" value="<?php echo $voluntario['id_usuario']; ?>">
+                <input type="hidden" name="status" value="Pendente">
+                <button type="submit" class="status-btn <?php echo $voluntario['status'] === 'Pendente' ? 'active' : ''; ?>">Pendente</button>
+            </form>
+            <form method="POST" style="display:inline;">
+                <input type="hidden" name="id_usuario" value="<?php echo $voluntario['id_usuario']; ?>">
+                <input type="hidden" name="status" value="Ativo">
+                <button type="submit" class="status-btn <?php echo $voluntario['status'] === 'Ativo' ? 'active' : ''; ?>">Ativo</button>
+            </form>
+            <form method="POST" style="display:inline;">
+                <input type="hidden" name="id_usuario" value="<?php echo $voluntario['id_usuario']; ?>">
+                <input type="hidden" name="status" value="Expirado">
+                <button type="submit" class="status-btn <?php echo $voluntario['status'] === 'Expirado' ? 'active' : ''; ?>">Expirado</button>
+            </form>
+        </div>
     </div>  
     <section id="tudo">
         <img id="placeholder" src="<?php echo htmlspecialchars($rg_imagem_src); ?>" alt="Imagem do RG">
-    <section id="info">
-        <h2>Detalhes do Voluntário</h2>
-        <div class="tt">
-            <p>Nome:</p>
-            <div class="resposta">
-                <p><?php echo htmlspecialchars($voluntario['nome'] ?? 'Não informado'); ?></p>
+        <section id="info">
+            <h2>Detalhes do Voluntário</h2>
+            <div class="tt">
+                <p>Nome:</p>
+                <div class="resposta">
+                    <p><?php echo htmlspecialchars($voluntario['nome'] ?? 'Não informado'); ?></p>
+                </div>
             </div>
-        </div>
-        <div class="tt">
-            <p>Profissão:</p>
-            <div class="resposta">
-                <p>Não informado</p>
+            <div class="tt">
+                <p>Profissão:</p>
+                <div class="resposta">
+                    <p>Não informado</p>
+                </div>
             </div>
-        </div>
-        <div class="tt">
-            <p>Nacionalidade:</p>
-            <div class="resposta">
-                <p>Não informado</p>
+            <div class="tt">
+                <p>Nacionalidade:</p>
+                <div class="resposta">
+                    <p>Não informado</p>
+                </div>
             </div>
-        </div>
-        <div class="tt">
-            <p>Estado Civil:</p>
-            <div class="resposta">
-                <p>Não informado</p>
+            <div class="tt">
+                <p>Estado Civil:</p>
+                <div class="resposta">
+                    <p>Não informado</p>
+                </div>
             </div>
-        </div>
-        <div class="tt">
-            <p>RG:</p>
-            <div class="resposta">
-                <p><?php echo htmlspecialchars($voluntario['rg'] ?? 'Não informado'); ?></p>
+            <div class="tt">
+                <p>RG:</p>
+                <div class="resposta">
+                    <p><?php echo htmlspecialchars($voluntario['rg'] ?? 'Não informado'); ?></p>
+                </div>
             </div>
-        </div>
-        <div class="tt">
-            <p>Orgão/UP:</p>
-            <div class="resposta">
-                <p>Não informado</p>
+            <div class="tt">
+                <p>Orgão/UP:</p>
+                <div class="resposta">
+                    <p>Não informado</p>
+                </div>
             </div>
-        </div>
-        <div class="tt">
-            <p>CPF:</p>
-            <div class="resposta">
-                <p><?php echo htmlspecialchars($voluntario['cpf'] ?? 'Não informado'); ?></p>
+            <div class="tt">
+                <p>CPF:</p>
+                <div class="resposta">
+                    <p><?php echo htmlspecialchars($voluntario['cpf'] ?? 'Não informado'); ?></p>
+                </div>
             </div>
-        </div>
-        <div class="tt">
-            <p>Residente/Domiciliada na:</p>
-            <div class="resposta">
-                <p>Não informado</p>
+            <div class="tt">
+                <p>Residente/Domiciliada na:</p>
+                <div class="resposta">
+                    <p>Não informado</p>
+                </div>
             </div>
-        </div>
-        <div class="tt">
-            <p>Número:</p>
-            <div class="resposta">
-                <p>Não informado</p>
+            <div class="tt">
+                <p>Número:</p>
+                <div class="resposta">
+                    <p>Não informado</p>
+                </div>
             </div>
-        </div>
-        <div class="tt">
-            <p>Bairro:</p>
-            <div class="resposta">
-                <p>Não informado</p>
+            <div class="tt">
+                <p>Bairro:</p>
+                <div class="resposta">
+                    <p>Não informado</p>
+                </div>
             </div>
-        </div>
-        <div class="tt">
-            <p>Cidade:</p>
-            <div class="resposta">
-                <p>Não informado</p>
+            <div class="tt">
+                <p>Cidade:</p>
+                <div class="resposta">
+                    <p>Não informado</p>
+                </div>
             </div>
-        </div>
-        <div class="tt">
-            <p>Estado:</p>
-            <div class="resposta">
-                <p>Não informado</p>
+            <div class="tt">
+                <p>Estado:</p>
+                <div class="resposta">
+                    <p>Não informado</p>
+                </div>
             </div>
-        </div>
-        <div class="tt">
-            <p>CEP:</p>
-            <div class="resposta">
-                <p>Não informado</p>
+            <div class="tt">
+                <p>CEP:</p>
+                <div class="resposta">
+                    <p>Não informado</p>
+                </div>
             </div>
-        </div>
-        <div class="tt">
-            <p>O Voluntário Concordou com as Clausulas?</p>
-            <div class="resposta">
-                <p>Não informado</p>
+            <div class="tt">
+                <p>O Voluntário Concordou com as Clausulas?</p>
+                <div class="resposta">
+                    <p>Não informado</p>
+                </div>
             </div>
-        </div>
-    </section>
-    <section id="ds">
-        <h2>Informações Relacionadas a Saúde do Voluntário</h2>
-        <div class="tt">
-            <p>É portador de alguma doença, sendo ela, neurológicas, cardíaca, hipertensão, diabetes, algum tipo de transtornos, doenças autoimunes, síndromes ou deficiência – Relatar abaixo qualquer uma (Caso não, Estará em branco):</p>
-            <div class="resposta">
-                <p><?php echo htmlspecialchars($voluntario['doencas'] ?? 'Não informado'); ?></p>
-                <br>
-            </div>
-        </div>
-        <div class="tt">
-            <p>Situações que já ocorreram e que tenham influência direta na sua saúde ou integridade física, como por exemplo, cirurgias (restrição) uso de próteses (dentária) crise convulsiva, epilepsia, desmaios etc. Caso não, Estará em branco.</p>
-            <div class="resposta">
-                <p><?php echo htmlspecialchars($voluntario['observacoes'] ?? 'Não informado'); ?></p>
-                <br>
-            </div>
-        </div>
-        <div class="tt">
-            <p>Tem Convênio? Qual?</p>
-            <div class="resposta">
-                <p>Não informado</p>
-                <br>
-            </div>
-        </div>
-        <div class="tt">
-            <p>Toma alguma medicação de uso contínuo e/ou controlado. Qual ou quais?</p>
-            <div class="resposta">
-                <p><?php echo htmlspecialchars($voluntario['medicamentos'] ?? 'Não informado'); ?></p>
-                <br>
-            </div>
-        </div>
-        <div class="tt">
-            <p>Em caso de dor, qual medicamento utiliza?</p>
-            <div class="resposta">
-                <p>Não informado</p>
-                <br>
-            </div>
-        </div>
-        <div class="tt">
-            <p>Quanto a ALERGIAS, responda sim ou não, sendo “sim” descreva:</p>
-            <div class="resposta">
-                <p><?php echo htmlspecialchars($voluntario['alergias'] ?? 'Não informado'); ?></p>
-            </div>
-        </div>  
-        <div class="tt">
-            <p>É alérgico a alguma medicação? Qual?</p>
-            <div class="resposta">
-                <p>Não informado</p>
-            </div>
-        </div>      
-        <div class="tt">
-            <p>É alérgico a algum alimento? Qual?</p>
-            <div class="resposta">
-                <p>Não informado</p>
-            </div>
-        </div>   
-        <div class="tt">
-            <p>É alérgico a picada de abelha? Qual?</p>
-            <div class="resposta">
-                <p>Não informado</p>
-                <br>
-            </div>
-        </div>                       
-        <div class="tt">
-            <p>OBSERVAÇÕES: Qualquer informação que julge ser útil relacionado a sua saúde.</p>
-            <div class="resposta">
-                <p><?php echo htmlspecialchars($voluntario['observacoes'] ?? 'Não informado'); ?></p>
-            </div>
-        </div>                   
-    </section>  
-    </section>
-</body>
-</html>
+        </section>
+        <section id="ds">
+            <h2>Informações Relacionadas a Saúde do Voluntário</h2>
+            <div class="tt">
+                <p>É portador de alguma doença, sendo ela, neurológicas, cardíaca, hipertensão, diabetes, algum tipo de transtornos, doenças autoimunes, síndromes ou deficiência

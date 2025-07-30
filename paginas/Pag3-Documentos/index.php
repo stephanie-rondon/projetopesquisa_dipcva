@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-// Verifica se o usuário está logado
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     header("Location: ../../login.php");
     exit();
@@ -9,7 +8,6 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 
 include '../../backend/conexao.php';
 
-// Busca a ficha completa do usuário
 $id_usuario = $_SESSION['id_usuario'];
 $sql = "SELECT * FROM voluntarios WHERE id_usuario = ? LIMIT 1";
 $stmt = $conexao->prepare($sql);
@@ -66,7 +64,7 @@ $status = $ficha ? $ficha['status'] : 'Não enviada';
         </div>
 
         <div class="documento-card">
-            <h3>RG Enviado</h3>
+            <h3>RG</h3>
             <p>Enviado em: <span class="data-envio"><?php echo $data_envio ? $data_envio : 'Não enviada'; ?></span></p>
             <p>Vence em: <span class="data-vencimento"><?php echo $data_vencimento ? $data_vencimento : 'Não aplicável'; ?></span></p>
             <p class="status" id="statusRG"><?php echo "Status: $status"; ?></p>

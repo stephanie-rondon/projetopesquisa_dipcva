@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-// Verifica se o usuário está logado e tem permissão de administrador
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true || !isset($_SESSION['is_admin']) || $_SESSION['is_admin'] !== true) {
     header("Location: ../../login.php");
     exit();
@@ -9,15 +8,15 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true || !isset($_
 
 include '../../backend/conexao.php';
 
-// Busca todos os voluntários
-$sql = "SELECT nome, status, data_cadastro FROM voluntarios";
+$sql = "SELECT id_usuario, nome, status, data_cadastro FROM voluntarios";
 $result = $conexao->query($sql);
 $voluntarios = [];
 if ($result && $result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         $voluntarios[] = [
+            'id' => $row['id_usuario'],
             'title' => htmlspecialchars($row['nome']),
-            'description' => ucfirst(strtolower($row['status'])), // Normaliza para primeira letra maiúscula
+            'description' => ucfirst(strtolower($row['status'])),
             'data_cadastro' => htmlspecialchars($row['data_cadastro'])
         ];
     }
@@ -34,6 +33,7 @@ if ($result && $result->num_rows > 0) {
     <script src="buscavoluntarios.js" defer></script>
 </head>
 <body>
+    <button onclick="window.location.href='../Pag5-Dashboard/index.php'" id="btnVoltar" class="botao">Voltar</button>
     <div class="filtros">
         <button class="btn" onclick="filterElements('Pendente')">Pendentes</button>
         <button onclick="filterElements('Ativo')">Ativos</button>
@@ -46,7 +46,7 @@ if ($result && $result->num_rows > 0) {
     <div class="card-container" id="card-container">
         <?php
         foreach ($voluntarios as $voluntario) {
-            echo "<div class='card {$voluntario['description']}' onclick='details(\"{$voluntario['title']}\")'>";
+            echo "<div class='card {$voluntario['description']}' onclick='details(\"{$voluntario['id']}\")'>";
             echo "<h3>{$voluntario['title']}</h3>";
             echo "<p>{$voluntario['description']}</p>";
             echo "</div>";
@@ -54,7 +54,6 @@ if ($result && $result->num_rows > 0) {
         ?>
     </div>
     <script>
-        // Dados reais são carregados diretamente no HTML via PHP
         const data = <?php echo json_encode($voluntarios); ?>;
 
         const cardContainer = document.querySelector("#card-container");
@@ -64,7 +63,7 @@ if ($result && $result->num_rows > 0) {
             cardContainer.innerHTML = "";
             data.forEach(e => {
                 cardContainer.innerHTML += `
-                    <div class="card ${e.description}" onclick="details('${encodeURIComponent(e.title)}')">
+                    <div class="card ${e.description}" onclick="details('${encodeURIComponent(e.id)}')">
                         <h3>${e.title}</h3>
                         <p>${e.description}</p>
                     </div>
@@ -79,14 +78,14 @@ if ($result && $result->num_rows > 0) {
 
         window.addEventListener("load", () => displayData(data));
 
-        function details(nome) {
-            location.href = `../Pag8-Detalhes/detalhes.php?nome=${encodeURIComponent(nome)}`;
+        function details(id) {
+            location.href = `../Pag8-Detalhes/detalhes.php?id=${encodeURIComponent(id)}`;
         }
 
         function filterElements(estado) {
             const cards = document.querySelectorAll(".card");
             cards.forEach(card => {
-                const cardState = card.querySelector("p").textContent.trim().toLowerCase(); // Normaliza
+                const cardState = card.querySelector("p").textContent.trim().toLowerCase();
                 if (cardState === estado.toLowerCase()) {
                     card.style.display = "block";
                 } else {

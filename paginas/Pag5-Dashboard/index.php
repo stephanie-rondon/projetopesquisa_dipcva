@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true || !isset($_SESSION['is_admin']) || $_SESSION['is_admin'] !== true) {
     header("Location: ../../login.php");
     exit();
@@ -9,7 +8,26 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true || !isset($_
 
 include '../../backend/conexao.php';
 
+// Processa a promoção de admin
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['promover_admin']) && isset($_POST['id_usuario'])) {
+    $id_usuario = $_POST['id_usuario'];
+    $sql_update = "UPDATE usuarios SET is_admin = 1 WHERE id = ? AND is_admin = 0"; // Usa 'id' como chave primária
+    $stmt = $conexao->prepare($sql_update);
+    $stmt->bind_param("i", $id_usuario);
+    $stmt->execute();
+    $stmt->close();
+}
 
+// Busca usuários (excluindo o admin atual)
+$sql_usuarios = "SELECT id, email as nome FROM usuarios WHERE id != ?"; // Usa 'id' e mapeia 'email' como 'nome'
+$stmt_usuarios = $conexao->prepare($sql_usuarios);
+$stmt_usuarios->bind_param("i", $_SESSION['id_usuario']); // Assume que 'id_usuario' na sessão é o 'id'
+$stmt_usuarios->execute();
+$result_usuarios = $stmt_usuarios->get_result();
+$usuarios = $result_usuarios->fetch_all(MYSQLI_ASSOC);
+$stmt_usuarios->close();
+
+// Busca contagens de voluntários
 $sql_voluntarios = "SELECT COUNT(*) as total FROM voluntarios";
 $result_voluntarios = $conexao->query($sql_voluntarios);
 $total_voluntarios = $result_voluntarios->fetch_assoc()['total'] ?? 0;
@@ -33,6 +51,7 @@ $pendentes = $result_pendentes->fetch_assoc()['pendentes'] ?? 0;
     <script src="script.js"></script>
 </head>
 <body>
+    <button onclick="window.location.href='../../login.php'; console.log('Botão Voltar clicado')" id="btnVoltar" class="botao">Voltar</button>
     <header>
         <h1>Dashboard do Gestor</h1>
         <nav>
@@ -40,13 +59,23 @@ $pendentes = $result_pendentes->fetch_assoc()['pendentes'] ?? 0;
             <a href="../Pag6-Cad.acp/index.php" class="navlinks">Cadastrar Acampamento</a>
         </nav>
     </header>
-    <section class="filtros">
-        <label for="tipos"><h3>Tipo de Acampamento:</h3></label>
-        <select id="tipos" class="tipos">
-            <option value="juvenil">Juvenil</option>
-            <option value="adulto">Adulto</option>
-            <option value="infantil">Infantil</option>
-        </select>
+    <section class="admin-management">
+        <h3>Gerenciar Administradores</h3>
+        <input type="text" id="searchAdmin" placeholder="Pesquisar usuário por e-mail..." onkeyup="filterAdmins()">
+        <div id="admin-list">
+            <?php foreach ($usuarios as $usuario): ?>
+                <div class="admin-item">
+                    <span><?php echo htmlspecialchars($usuario['nome']); ?> (ID: <?php echo $usuario['id']; ?>)</span>
+                    <form method="POST" style="display:inline;">
+                        <input type="hidden" name="id_usuario" value="<?php echo $usuario['id']; ?>">
+                        <button type="submit" name="promover_admin" class="btn-promote">Promover a Admin</button>
+                    </form>
+                </div>
+            <?php endforeach; ?>
+            <?php if (empty($usuarios)): ?>
+                <p>Nenhum usuário encontrado.</p>
+            <?php endif; ?>
+        </div>
     </section>
     <section class="cards">
         <div class="card">
@@ -66,5 +95,15 @@ $pendentes = $result_pendentes->fetch_assoc()['pendentes'] ?? 0;
         <h2>Gerenciar Voluntários</h2>
         <button onclick="window.location.href='../Pag7-Busca/buscavoluntarios.php'" class="btn-voluntarios">Ver Voluntários</button>
     </section>
+    <script>
+        function filterAdmins() {
+            let input = document.getElementById("searchAdmin").value.toLowerCase();
+            let items = document.getElementsByClassName("admin-item");
+            for (let i = 0; i < items.length; i++) {
+                let text = items[i].getElementsByTagName("span")[0].textContent.toLowerCase();
+                items[i].style.display = text.includes(input) ? "block" : "none";
+            }
+        }
+    </script>
 </body>
 </html>
