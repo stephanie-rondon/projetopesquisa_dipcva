@@ -51,13 +51,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <h1>Cadastrar Acampamento</h1>
         <nav class="navbars">
             <a href="../Pag5-Dashboard/index.php" class="navlinks">Dashboard</a>
-            <a href="" class="navlinks">Cadastrar Acampamento</a>
+            <!--<a href="" class="navlinks">Cadastrar Acampamento</a>-->
         </nav>
     </header>
     <form class="formulario" method="POST">
-        <label for="nome">Nome do Acampamento:</label>
-        <input type="text" id="nome" name="nome" value="<?php echo isset($_POST['nome']) ? htmlspecialchars($_POST['nome']) : ''; ?>" required>
-        <label for="tipo">Tipo:</label>
+        <label for="tipo">Acampamento</label>
         <select id="tipo" name="tipo" required>
             <option value="" disabled <?php echo !isset($_POST['tipo']) ? 'selected' : ''; ?>>Selecione</option>
             <option value="juvenil" <?php echo isset($_POST['tipo']) && $_POST['tipo'] == 'juvenil' ? 'selected' : ''; ?>>Juvenil</option>

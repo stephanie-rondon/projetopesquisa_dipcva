@@ -51,7 +51,7 @@ $pendentes = $result_pendentes->fetch_assoc()['pendentes'] ?? 0;
     <script src="script.js"></script>
 </head>
 <body>
-    <button onclick="window.location.href='../../login.php'; console.log('Botão Voltar clicado')" id="btnVoltar" class="botao">Voltar</button>
+    <button onclick="window.location.href='../../login.php'; console.log('Botão Voltar clicado')" id="btnVoltar" class="botao">Sair</button>
     <header>
         <h1>Área do Gestor</h1>
         <nav>
