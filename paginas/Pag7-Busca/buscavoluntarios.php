@@ -36,9 +36,9 @@ if ($result && $result->num_rows > 0) {
     <button onclick="window.location.href='../Pag5-Dashboard/index.php'" id="btnVoltar" class="botao">Voltar</button>
     <div class="filtros">
         <button class="btn" onclick="filterElements('Pendente')">Pendentes</button>
-        <button onclick="filterElements('Ativo')">Ativos</button>
-        <button onclick="filterElements('Expirado')">Expirados</button>
-        <button onclick="filterAll()">Todos</button>
+        <button class="btn-fil" onclick="filterElements('Ativo')">Ativos</button>
+        <button class="btn-fil" onclick="filterElements('Expirado')">Expirados</button>
+        <button class="btn-fil" onclick="filterAll()">Todos</button>
     </div>
     <div class="pesquisa">
         <input type="text" id="searchInput" placeholder="Pesquisar por Voluntários...">

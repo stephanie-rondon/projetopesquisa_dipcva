@@ -1,6 +1,6 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f0f4f8;
+    background-color: #f6f8ff;
     margin: 0;
     padding: 0;
 }
@@ -10,7 +10,7 @@ body {
     top: 20px;
     left: 20px;
     padding: 10px 20px;
-    background-color: #4caf50;
+    background-color: #7f7fb9;
     color: white;
     border: none;
     border-radius: 25px;
@@ -22,7 +22,7 @@ body {
 }
 
 #btnVoltar:hover {
-    background-color: #388e3c;
+    background-color: #6e6eb9;
     transform: translateY(-2px);
 }
 
@@ -42,17 +42,17 @@ body {
 
 .btn {
     padding: 10px 20px;
-    background: linear-gradient(to right, #4caf50, #81c784);
+    background: #7f7fb9;
     color: white;
     border: none;
     border-radius: 25px;
     font-weight: bold;
     cursor: pointer;
-    transition: background 0.3s ease;
+    transition: background-color 0.3s ease;
 }
 
 .btn:hover {
-    background: linear-gradient(to right, #388e3c, #66bb6a);
+    background: #6e6eb9;
 }
 
 .pesquisa {
@@ -74,7 +74,7 @@ body {
 }
 
 #searchInput:focus {
-    border-color: #66bb6a;
+    border-color: #6e6eb9;
     outline: none;
 }
 
@@ -153,4 +153,12 @@ body {
         width: 80%;
         max-width: 200px;
     }
+}
+
+.btn-fil {
+    border-radius: 15px;
+    border: none;
+    background-color: #8888bd;
+    color: #ffffff;
+    font-weight: bold;
 }

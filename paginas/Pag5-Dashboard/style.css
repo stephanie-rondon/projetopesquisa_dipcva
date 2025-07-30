@@ -2,7 +2,7 @@ body {
     font-family: "Montserrat", sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #6366f1;
+    background-color: #f6f8ff;
 }
 
 #btnVoltar {
@@ -10,7 +10,7 @@ body {
     top: 20px;
     left: 20px;
     padding: 10px 20px;
-    background-color: #4caf50; /* Fundo verde */
+    background-color: #7f7fb9; /* Fundo verde */
     color: white;
     border: none;
     border-radius: 25px;
@@ -22,7 +22,7 @@ body {
 }
 
 #btnVoltar:hover {
-    background-color: #388e3c; /* Tom mais escuro ao passar o mouse */
+    background-color: #6e6eb9; /* Tom mais escuro ao passar o mouse */
     transform: translateY(-2px); /* Efeito de elevação */
 }
 
@@ -225,18 +225,18 @@ select {
 }
 
 .btn-promote {
-    background-color: #28a745;
+    background-color: #3a3a6f;
     color: white;
     border: none;
     padding: 8px 15px;
     border-radius: 8px;
     cursor: pointer;
     font-size: 0.9rem;
-    transition: background-color 0.3s;
+    transition: background-color 0.2s;
 }
 
 .btn-promote:hover {
-    background-color: #218838;
+    background-color: #5e5e79;
 }
 
 /* Responsividade */

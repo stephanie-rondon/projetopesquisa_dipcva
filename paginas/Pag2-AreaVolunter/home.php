@@ -30,7 +30,7 @@ if (isset($_GET['logout'])) {
 
     <div class="botoes">
       <a href="../Pag3-Documentos/index.php" class="botao">Meus Documentos</a>
-      <a href="../Pag4-Histórico.acp/index.html" class="botao">Histórico de Acampamentos</a>
+    <!--  <a href="../Pag4-Histórico.acp/index.html" class="botao">Histórico de Acampamentos</a> -->
       <a href="cad-volunter.php" class="botao">Preencher Ficha</a>
       <a href="?logout=1" id="btnSair" class="botao">Sair</a> <!-- Alterado para link com parâmetro GET -->
     </div>
