@@ -1,5 +1,15 @@
+CREATE TABLE usuarios (
+    id INT(11) NOT NULL AUTO_INCREMENT,
+    email VARCHAR(100) NOT NULL,
+    senha VARCHAR(255) NOT NULL,
+    data_cadastro DATETIME DEFAULT CURRENT_TIMESTAMP,
+    is_admin TINYINT(1) UNSIGNED NOT NULL DEFAULT 0,
+    PRIMARY KEY (id)
+);
+
+
 CREATE TABLE voluntarios (
-    id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    id INT(11) NOT NULL AUTO_INCREMENT,
     nome VARCHAR(100),
     data_nascimento DATE,
     cpf VARCHAR(14),
@@ -17,26 +27,21 @@ CREATE TABLE voluntarios (
     doencas VARCHAR(255),
     observacoes VARCHAR(255),
     documento VARCHAR(255),
-    id_usuario INT(11) NOT NULL
+    id_usuario INT(11) NOT NULL,
+    concordou_termos TINYINT(4) DEFAULT 0,
+    numero VARCHAR(20),
+    bairro VARCHAR(100),
+    cidade VARCHAR(100),
+    estado VARCHAR(50),
+    cep VARCHAR(10),
+    orgao_up VARCHAR(100),
+    profissao VARCHAR(100),
+    nacionalidade VARCHAR(100),
+    estado_civil VARCHAR(50),
+    funcao VARCHAR(50) NOT NULL,
+    tipo_acampamento VARCHAR(50) NOT NULL,
+    PRIMARY KEY (id)
 );
 
 
 
-CREATE TABLE acampamentos (
-    id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    nome VARCHAR(100),
-    data DATE,
-    tipo VARCHAR(50),
-    data_criacao DATETIME DEFAULT CURRENT_TIMESTAMP,
-    responsavel_id INT(11),
-    status VARCHAR(20) DEFAULT 'pendente'
-);
-
-
-CREATE TABLE usuarios (
-    id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    email VARCHAR(100) NOT NULL,
-    senha VARCHAR(255) NOT NULL,
-    data_cadastro DATETIME DEFAULT CURRENT_TIMESTAMP,
-    is_admin TINYINT(1) UNSIGNED NOT NULL DEFAULT 0
-);

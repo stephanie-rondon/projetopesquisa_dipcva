@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #404040;
+    display: flex; 
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(75, 75, 144);
+    padding: 20px;
+}
+
+h3 {
+    font-size: 24px;
+}
+
+form {
+    padding: 50px;
+    background-color: white;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.barra-horizontal {
+    background-color: rgb(75, 75, 144);
+    height: 3px;
+    width: 210px;
+}
+
+.campo-input {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.lembrar-me {
+    display: flex;
+    gap: 5px;
+}
+
+.titulo {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;           
+}
+
+button {
+    padding: 10px;
+    align-self: center;
+    width: 160px;
+    border-radius: 30px;
+    border: solid 1px rgb(75, 75, 144);
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+button:hover {
+    background-color: rgb(75, 75, 144);
+    color: white;
+    transition: 0.3s;
+}
+
+input {
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    background-color: #f1f1f1;
+}
+
+a {
+    color: rgb(75, 75, 144);
+    font-weight: 500;
+}
+
+.esqueceu-senha {
+    text-align: center;
+}
+
+.cadastro {
+    text-align: center;
+}
+
+.campo-input input:focus {
+    outline: 2px solid rgb(75, 75, 144);
+}
+
+.input-com-icone {
+    position: relative;
+    width: 100%;
+}
+
+.input-com-icone input {
+    width: 100%;
+    padding-right: 35px;
+    box-sizing: border-box;
+}
+
+.input-com-icone i {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: rgb(75, 75, 144);
+    font-size: 1rem;
+}

@@ -21,13 +21,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $usuario = $resultado->fetch_assoc();
             $_SESSION['loggedin'] = true;
             $_SESSION['email'] = $email;
-            $_SESSION['id_usuario'] = $usuario['id']; // Define o ID do usuário
-            $_SESSION['is_admin'] = $usuario['is_admin'] == 1; // Define se é admin
+            $_SESSION['id_usuario'] = $usuario['id'];
+            $_SESSION['is_admin'] = $usuario['is_admin'] == 1;
             // Redireciona com base no papel
             if ($_SESSION['is_admin']) {
-                header("Location: ./paginas/Pag5-Dashboard/index.php"); // Admin vai para o CMS
+                header("Location: ./paginas/Pag4-Dashboard/index.php");
             } else {
-                header("Location: ./paginas/Pag2-AreaVolunter/home.php"); // Voluntário vai para a área dele
+                header("Location: ./paginas/Pag2-AreaVolunter/home.php");
             }
             exit();
         } else {

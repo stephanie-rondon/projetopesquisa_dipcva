@@ -1,0 +1,187 @@
+body {
+    font-family: "Montserrat", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #6366f1;
+    color: #333;
+}
+
+#inicio {
+    background-color: white;
+    padding: 20px;
+    border-radius: 30px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    text-align: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.butao {
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.butao img {
+    width: 30px;
+    height: 30px;
+}
+
+#dis, #claimer {
+    margin: 10px 0;
+}
+
+#claimer {
+    color: #555;
+}
+
+#tudo {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+#placeholder {
+    max-width: 200px;
+    max-height: 200px;
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#info, #ds {
+    flex: 1;
+    background-color: white;
+    padding: 20px;
+    border-radius: 30px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-left: 20px;
+}
+
+.tt {
+    margin-bottom: 15px;
+}
+
+.tt p:first-child {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.resposta {
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.status-buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    gap: 10px;
+    padding-right: 20px;
+}
+
+.status-btn {
+    background-color: #4b4b90;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.status-btn:hover {
+    background-color: #3a3a6f;
+    transform: translateY(-2px);
+}
+
+.status-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.status-btn.active {
+    background-color: #28a745;
+    box-shadow: 0 4px 10px rgba(40, 167, 69, 0.3);
+}
+
+.status-btn.active:hover {
+    background-color: #218838;
+}
+
+@media (max-width: 768px) {
+    #tudo {
+        flex-direction: column;
+    }
+
+    #placeholder {
+        width: 200px;
+        height: 200px;
+        margin-bottom: 20px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #info, #ds {
+        margin-left: 0;
+        margin-bottom: 20px;
+    }
+
+    .status-buttons {
+        justify-content: center;
+        padding-right: 0;
+    }
+
+    .status-btn {
+        padding: 8px 15px;
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .status-btn {
+        font-size: 0.9rem;
+        padding: 6px 12px;
+    }
+
+    #info h2, #ds h2 {
+        font-size: 1.2rem;
+    }
+}
+
+a, button {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px;
+  width: 160px;
+  font-size: 14px;
+  background-color: white;
+  color: rgb(75, 75, 144);
+  padding: 10px ;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 500;
+  text-align: center;
+  transition: 0.3s;
+  border: 1px solid rgb(75, 75, 144);
+  cursor: pointer;
+}
+
+button:hover,
+a:hover {
+  background-color: rgb(75, 75, 144);
+  color: white;
+}

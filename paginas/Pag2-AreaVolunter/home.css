@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f6f8ff;
+  color: #1e293b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 0;
+}
+
+.container-home {
+  background: white;
+  padding: 40px 30px;
+  border-radius: 30px;
+  width: 400px;
+  max-width: 90%;
+  box-shadow: 0 4px 12px rgba(204, 204, 204, 0.5);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.container-home h2 {
+  font-size: 28px;
+  font-weight: 600;
+  color: rgb(75, 75, 144);
+}
+
+#nomeVoluntario {
+  color: rgb(75, 75, 144);
+}
+
+.container-home p {
+  font-size: 16px;
+  color: #334155;
+}
+
+.botoes {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.botoes .botao {
+  padding: 10px;
+  width: 160px;
+  border-radius: 30px;
+  border: solid 1px rgb(75, 75, 144);
+  font-size: 14px;
+  font-weight: 400;
+  text-align: center;
+  background-color: transparent;
+  color: rgb(75, 75, 144);
+  cursor: pointer;
+  text-decoration: none;
+  transition: 0.3s;
+  margin: 0 auto;
+}
+
+.botoes .botao:hover {
+  background-color: rgb(75, 75, 144);
+  color: white;
+}
+
+#btnSair {
+  border: solid 1px rgb(75, 75, 144);
+  background-color: white;
+}
+
+#btnSair:hover {
+  background-color: rgb(75, 75, 144);
+}
+
+@media screen and (max-width: 500px) {
+  .container-home {
+    width: 100%;
+    min-height: 100vh;
+    padding: 32px;
+  }
+
+  .container-home h2 {
+    font-size: 22px;
+  }
+
+  .container-home p {
+    font-size: 14px;
+  }
+
+  .botoes {
+    gap: 12px;
+  }
+
+  .botoes .botao {
+    width: 140px;
+    font-size: 13px;
+  }
+}
